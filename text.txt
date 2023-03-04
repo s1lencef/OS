@@ -1,12 +1,11 @@
-main() {
-вывод на экран pid и ppid;
-pid_t	pid	=	fork();
-if (pid == 0) {
-exec(“prog”,...);
-}else if (pid > 0) {
-while (waitpid(...) == 0) {
-вывод на экран слова «ждем»;
-sleep(1);
+int khbit() const
+{
+    struct timeval tv;
+    fd_set fds;
+    tv.tv_sec = 0;
+    tv.tv_usec = 0;
+    FD_ZERO(&fds);
+    FD_SET(STDIN_FILENO, &fds);
+    select(STDIN_FILENO+1, &fds, NULL, NULL, &tv);
+    return FD_ISSET(STDIN_FILENO, &fds);
 }
-вывод на экран код_завершения дочернего процесса;
-};
