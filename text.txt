@@ -9,3 +9,4 @@ int khbit() const
     select(STDIN_FILENO+1, &fds, NULL, NULL, &tv);
     return FD_ISSET(STDIN_FILENO, &fds);
 }
+https://www.opennet.ru/man.shtml?topic=select&category=2&russian=0
